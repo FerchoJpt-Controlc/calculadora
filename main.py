@@ -23,7 +23,9 @@ def sumar():
     b = float(entrada.get())
     return a + b
 
-def restar(a, b):
+def restar():
+    a = float(entrada.get())
+    b = float(entrada.get())
     return a - b
 
 def multiplicar(a, b):
@@ -41,6 +43,9 @@ def limpiar():
 
 boton_sumar = tk.Button(ventana, text="SUMAR", command=sumar)
 boton_sumar.pack(pady=5)
+
+boton_restar = tk.Button(ventana, text="RESTAR", command=restar)
+boton_restar.pack(pady=5)
 
 boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar)
 boton_limpiar.pack(pady=5)
