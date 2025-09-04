@@ -4,31 +4,30 @@ ventana = tk.Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("300x200")
 
-etiqueta = tk.Label(ventana, text="ingrese num1:")
-etiqueta.pack(pady=5)
+etiqueta1 = tk.Label(ventana, text="Ingrese num1:")
+etiqueta1.pack(pady=5)
+entrada1 = tk.Entry(ventana)
+entrada1.pack(pady=5)
 
-entrada = tk.Entry(ventana)
-entrada.pack(pady=5)
 
-etiqueta = tk.Label(ventana, text="ingrese num2:")
-etiqueta.pack(pady=5)
-
-entrada = tk.Entry(ventana)
-entrada.pack(pady=5)
+etiqueta2 = tk.Label(ventana, text="Ingrese num2:")
+etiqueta2.pack(pady=5)
+entrada2 = tk.Entry(ventana)
+entrada2.pack(pady=5)
 
 etiqueta_resultado = tk.Label(ventana, text="El RESULTADO ES: ")
 etiqueta_resultado.pack(pady=10)
 
 def sumar():
 
-    a = float(entrada.get())
-    b = float(entrada.get())
+    a = float(entrada1.get())
+    b = float(entrada2.get())
     resultado = a + b
     etiqueta_resultado.config(text=f"El RESULTADO ES: {resultado}")
 
 def restar():
-    a = float(entrada.get())
-    b = float(entrada.get())
+    a = float(entrada1.get())
+    b = float(entrada2.get())
     return a - b
 
 def multiplicar(a, b):
@@ -38,11 +37,9 @@ def dividir(a, b):
     return a / b
 
 def limpiar():
-    entrada.delete(0, tk.END)
-    etiqueta.config(text="Ingrese num1:")
-
-    entrada.delete(0, tk.END)
-    etiqueta.config(text="Ingrese num2:")
+    entrada1.delete(0, tk.END)
+    entrada2.delete(0, tk.END)
+    etiqueta_resultado.config(text="El RESULTADO ES: ")
 
 boton_sumar = tk.Button(ventana, text="SUMAR", command=sumar)
 boton_sumar.pack(pady=5)
