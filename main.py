@@ -1,4 +1,26 @@
-def sumar(a, b):
+import tkinter as tk
+
+
+
+ventana = tk.Tk()
+ventana.title("CALCULADORA")
+ventana.geometry("300x200")
+
+etiqueta = tk.Label(ventana, text="ingrese num1:")
+etiqueta.pack(pady=5)
+
+entrada = tk.Entry(ventana)
+entrada.pack(pady=5)
+
+etiqueta = tk.Label(ventana, text="ingrese num2:")
+etiqueta.pack(pady=5)
+
+entrada = tk.Entry(ventana)
+entrada.pack(pady=5)
+
+def sumar():
+    a = float(entrada.get())
+    b = float(entrada.get())
     return a + b
 
 def restar(a, b):
@@ -10,32 +32,20 @@ def multiplicar(a, b):
 def dividir(a, b):
     return a / b
 
+def limpiar():
+    entrada.delete(0, tk.END)
+    etiqueta.config(text="Ingrese num1:")
 
+    entrada.delete(0, tk.END)
+    etiqueta.config(text="Ingrese num2:")
 
-def menu():
-    print("CALCULADORA")
-    print("1. Suma")
-    print("2. Resta")
-    print("3. Multiplicar")
-    print("4. Dividir")
+boton_sumar = tk.Button(ventana, text="SUMAR", command=sumar)
+boton_sumar.pack(pady=5)
 
-    opcion = input("Elige una opción: ")
+boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar)
+boton_limpiar.pack(pady=5)
 
-    num1 = float(input("Ingresa el primer número: "))
-    num2 = float(input("Ingresa el segundo número: "))
+boton_salir = tk.Button(ventana, text="Salir", command=ventana.quit)
+boton_salir.pack(pady=5)
 
-    match opcion:
-        case "1":
-            print("Resultado de la suma:", sumar(num1, num2))
-        case "2":
-            print("Resultado de la resta:", restar(num1, num2))
-        case "2":
-            print("Resultado de la multiplicacion:", multiplicar(num1, num2))
-        case "3":
-            print("Resultado de la divicion:", dividir(num1, num2))
-        case _:
-            print("Opción no válida")
-
-
-
-menu()
+ventana.mainloop()
