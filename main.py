@@ -2,7 +2,7 @@ import tkinter as tk
 
 ventana = tk.Tk()
 ventana.title("CALCULADORA")
-ventana.geometry("300x200")
+ventana.geometry("600x400")
 
 etiqueta1 = tk.Label(ventana, text="Ingrese num1:")
 etiqueta1.pack(pady=5)
@@ -28,13 +28,20 @@ def sumar():
 def restar():
     a = float(entrada1.get())
     b = float(entrada2.get())
-    return a - b
+    resultado = a - b
+    etiqueta_resultado.config(text=f"El RESULTADO ES: {resultado}")
 
-def multiplicar(a, b):
-    return a * b
+def multiplicar():
+    a = float(entrada1.get())
+    b = float(entrada2.get())
+    resultado = a * b
+    etiqueta_resultado.config(text=f"El RESULTADO ES: {resultado}")
 
-def dividir(a, b):
-    return a / b
+def dividir():
+    a = float(entrada1.get())
+    b = float(entrada2.get())
+    resultado = a / b
+    etiqueta_resultado.config(text=f"El RESULTADO ES: {resultado}")
 
 def limpiar():
     entrada1.delete(0, tk.END)
@@ -46,6 +53,12 @@ boton_sumar.pack(pady=5)
 
 boton_restar = tk.Button(ventana, text="RESTAR", command=restar)
 boton_restar.pack(pady=5)
+
+boton_multiplicar = tk.Button(ventana, text="MULTIPLICAR", command=multiplicar)
+boton_multiplicar.pack(pady=5)
+
+boton_dividir = tk.Button(ventana, text="DIVIDIR", command=dividir)
+boton_dividir.pack(pady=5)
 
 boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar)
 boton_limpiar.pack(pady=5)
