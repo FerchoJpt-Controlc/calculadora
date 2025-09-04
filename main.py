@@ -1,7 +1,5 @@
 import tkinter as tk
 
-
-
 ventana = tk.Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("300x200")
@@ -18,10 +16,15 @@ etiqueta.pack(pady=5)
 entrada = tk.Entry(ventana)
 entrada.pack(pady=5)
 
+etiqueta_resultado = tk.Label(ventana, text="El RESULTADO ES: ")
+etiqueta_resultado.pack(pady=10)
+
 def sumar():
+
     a = float(entrada.get())
     b = float(entrada.get())
-    return a + b
+    resultado = a + b
+    etiqueta_resultado.config(text=f"El RESULTADO ES: {resultado}")
 
 def restar():
     a = float(entrada.get())
